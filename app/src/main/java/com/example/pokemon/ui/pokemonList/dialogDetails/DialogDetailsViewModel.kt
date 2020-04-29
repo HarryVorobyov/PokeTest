@@ -16,7 +16,7 @@ class DialogDetailsViewModel(application: Application) : AndroidViewModel(applic
     fun setId(id:Int){
         if(id != -1){
             pokeId = id
-            App.getRep().movieDataService.getPokemonDetails(pokeId).enqueue(createInitialCalback())
+            App.getRep().getPokemonDetails(pokeId, createInitialCalback())
         }
     }
 

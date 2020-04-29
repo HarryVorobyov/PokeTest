@@ -9,7 +9,7 @@ import retrofit2.http.Query
 
 interface PokeService {
     @GET("pokemon")
-    fun getPopularMovies(@Query("limit") limit: Int,
+    fun getPokeList(@Query("limit") limit: Int,
                          @Query("offset") page: Int): Call<ResponsePokeList?>
 
     @GET("pokemon/{pokeID}")

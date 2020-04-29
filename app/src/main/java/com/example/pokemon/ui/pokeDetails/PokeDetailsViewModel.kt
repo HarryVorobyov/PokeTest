@@ -19,7 +19,7 @@ class PokeDetailsViewModel(application: Application) : AndroidViewModel(applicat
     fun setId(id:Int){
         if(id != -1){
             pokeId = id
-            App.getRep().movieDataService.getPokemonDetails(pokeId).enqueue(createInitialCalback(pokeData))
+            App.getRep().getPokemonDetails(pokeId, createInitialCalback(pokeData))
         }
     }
 
