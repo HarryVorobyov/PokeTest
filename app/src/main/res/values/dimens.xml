@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding_8">8dp</dimen>
+    <dimen name="width_0">0dp</dimen>
+    <dimen name="text_16">16sp</dimen>
+    <dimen name="margin_24">24dp</dimen>
+    <dimen name="layout_recycler_empty_loading_text_size">12sp</dimen>
+    <dimen name="layout_recycler_empty_loading_text_margin_top">4dp</dimen>
+    <dimen name="layout_recycler_empty_loading_text_padding">32dp</dimen>
+    <dimen name="progress_size">40dp</dimen>
+    <dimen name="progress_padding">8dp</dimen>
+    <dimen name="empty_view_default_text_size">16sp</dimen>
+</resources>
