@@ -1,31 +1,28 @@
-package com.example.pokemon.ui.pokeDetails
+package com.example.pokemon.ui.pokemonList.dialogDetails
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.pokemon.App
 import com.example.pokemon.model.PokeDetailsModel
-import com.example.pokemon.service.PokeRepository
-import com.example.pokemon.service.RetrofitInstance
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class PokeDetailsViewModel(application: Application) : AndroidViewModel(application) {
+class DialogDetailsViewModel(application: Application) : AndroidViewModel(application) {
+    private var data: MutableLiveData<PokeDetailsModel?> = MutableLiveData<PokeDetailsModel?>()
     private var pokeId: Int = -1
-    private val pokeData: MutableLiveData<PokeDetailsModel?> = MutableLiveData<PokeDetailsModel?>()
 
     fun setId(id:Int){
         if(id != -1){
             pokeId = id
-            App.getRep().getPokemonDetails(pokeId, createInitialCalback(pokeData))
+            App.getRep().getPokemonDetails(pokeId, createInitialCalback())
         }
     }
 
-    fun getPokeData() = pokeData
+    fun getData() = data
 
-    fun createInitialCalback(pokeData: MutableLiveData<PokeDetailsModel?>) = object :
+    fun createInitialCalback() = object :
         Callback<PokeDetailsModel?> {
         override fun onFailure(call: Call<PokeDetailsModel?>, t: Throwable) { //TODO
         }
@@ -34,9 +31,11 @@ class PokeDetailsViewModel(application: Application) : AndroidViewModel(applicat
             call: Call<PokeDetailsModel?>,
             response: Response<PokeDetailsModel?>
         ) {
-            val body = response.body()
-            if (response.isSuccessful){
-                pokeData.value = response.body()
+            if (response.isSuccessful) {
+                response.body()?.let {
+                    data.value = response.body()
+                }
+
             }
         }
     }
