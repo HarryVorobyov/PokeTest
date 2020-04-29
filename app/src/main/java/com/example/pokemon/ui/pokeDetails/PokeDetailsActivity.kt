@@ -21,6 +21,7 @@ class PokeDetailsActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         activityDetailsBinding = DataBindingUtil.setContentView(this, R.layout.activity_poke_details)
         pokeViewModel = ViewModelProviders.of(this).get(PokeDetailsViewModel::class.java)
+
         pokeViewModel.setId(intent.extras?.getInt(KEY_POKE_ID, -1) ?: -1)
         activityDetailsBinding.loader = showLoader
 
