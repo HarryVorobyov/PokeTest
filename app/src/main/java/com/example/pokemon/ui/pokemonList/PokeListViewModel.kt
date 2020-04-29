@@ -16,7 +16,7 @@ import java.util.concurrent.Executors
 class PokeListViewModel(application: Application) : AndroidViewModel(application) {
     private var executor: Executor = Executors.newFixedThreadPool(2)
     private val pokePagedList: LiveData<PagedList<PokeModel>>
-    private var factory: PokeDataSourceFactory = PokeDataSourceFactory(App.getRep().movieDataService, application)
+    private var factory: PokeDataSourceFactory = PokeDataSourceFactory(application)
 
     init {
         val config: PagedList.Config = Builder()
