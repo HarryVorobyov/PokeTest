@@ -1,4 +1,4 @@
-package com.example.pokemon.base
+package com.example.pokemon.ui.view.adapter
 
 import android.content.Context
 import android.content.res.Resources
